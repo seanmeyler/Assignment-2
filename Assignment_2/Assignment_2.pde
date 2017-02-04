@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 PImage logo;
 PFont font;
 
@@ -22,7 +29,6 @@ void setup()
 void draw()
 {
   loadingscreen();
-  circleout();
 }
 
 
@@ -39,26 +45,20 @@ void loadingscreen()
     textSize(80);
     text("LOADING...", width/2 - 170, 550);
     
-    if(load_width <= 800)
+    if (millis() < 7.3*1000)
     {
-      load_width += 2;
+        if(load_width <= 800)
+        {
+          load_width += 2;
+        }
     }
-}
-
-//Fade out into main menu after loading screen
-void circleout()
-{
-    if  if (millis() > time + 2000)
-  {
-    miss.moveMissile();
-    time = millis();
-  };
+    else 
     {
       fill(255);
       ellipse(width/2, height/2, load_circle, load_circle);
       if(load_circle <= 2000)
       {
-      load_circle += 10;
+        load_circle += 10;
       }
-    } 
+    }
 }
