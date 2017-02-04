@@ -5,6 +5,9 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+Minim minim;
+AudioPlayer sound1;
+
 PImage logo;
 PFont font;
 
@@ -24,6 +27,10 @@ void setup()
   //For fonts
   font = loadFont("BerlinSansFB-Bold-48.vlw");
   textFont(font);
+  
+  minim = new Minim(this);
+  sound1 = minim.loadFile("drumbeats.mp3");
+  sound1.loop();
 }
 
 void draw()
@@ -44,8 +51,9 @@ void loadingscreen()
     rect(460, 600, load_width, 75, 15);
     textSize(80);
     text("LOADING...", width/2 - 170, 550);
-    
-    if (millis() < 7.3*1000)
+
+//Used timing to get the perfect synchronisation between my loadscreens
+    if (millis() < 8*1000)
     {
         if(load_width <= 800)
         {
@@ -60,5 +68,6 @@ void loadingscreen()
       {
         load_circle += 10;
       }
+
     }
 }
