@@ -25,7 +25,7 @@ void loadingscreen()
     strokeWeight(1);
     rect(460, 600, load_width, 50);
     
-    if(load_width <= 400)
+    if(load_width <= 800)
     {
       load_width++;
     }
