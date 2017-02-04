@@ -15,12 +15,18 @@ float time = millis();
 int load_width = 0;
 int load_circle = 0;
 int menu_logo_y = - 100;
-int menu_option1_y = 0;
-int menu_option2_y = 0;
-int menu_option3_y = 0;
-int menu_option4_y = 0;
+int menu_bg_y = 900;
+int menu_option1_x = -400;
+int menu_option2_x = 0;
+int menu_option3_x = 0;
+int menu_option4_x = 0;
 boolean load_finished = false;
-boolean menu_check = false;
+boolean menu_check1 = false;
+boolean menu_check2 = false;
+boolean menu_check3 = false;
+boolean menu_check4 = false;
+boolean menu_check5 = false;
+boolean menu_check6 = false;
 
 void setup()
 {
@@ -43,6 +49,7 @@ void draw()
 {
   loadingscreen();
   menuscreenlogo();
+  menu_screen_options();
 }
 
 
@@ -77,19 +84,57 @@ void loadingscreen()
       }
       if(load_circle == 1500)
       {
-         menu_check = true; 
+         menu_check1 = true; 
       }
     }
 }
 
 void menuscreenlogo()
 {  
-  if(menu_check == true)
+  if(menu_check1 == true)
   {
      image(logo, 680, menu_logo_y);
      if(menu_logo_y < 100)
      {
         menu_logo_y += 1.5;
+     }
+     if(menu_logo_y == 100)
+     {
+        menu_check2 = true; 
+     }
+  }
+}
+
+void menu_screen_options()
+{
+  if(menu_check2 == true)
+  {
+    noFill();
+    stroke(0);
+    strokeWeight(10);
+    rect(590, menu_bg_y, 500, 400, 15);
+    if(menu_bg_y > 400)
+     {
+        menu_bg_y -= 20;
+     }
+     if(menu_bg_y == 400)
+     {
+        menu_check3 = true; 
+     }
+  }
+  if(menu_check3 == true)
+  {
+    noFill();
+    stroke(0);
+    strokeWeight(10);
+    rect(menu_option3_x, 420, 400, 75, 15);
+    if(menu_option3_x < 610)
+     {
+        menu_option1_x += 20;
+     }
+     if(menu_option1_x > 400)
+     {
+        menu_check4 = true; 
      }
   }
 }
