@@ -14,7 +14,13 @@ PFont font;
 float time = millis();
 int load_width = 0;
 int load_circle = 0;
+int menu_logo_y = - 100;
+int menu_option1_y = 0;
+int menu_option2_y = 0;
+int menu_option3_y = 0;
+int menu_option4_y = 0;
 boolean load_finished = false;
+boolean menu_check = false;
 
 void setup()
 {
@@ -36,6 +42,7 @@ void setup()
 void draw()
 {
   loadingscreen();
+  menuscreenlogo();
 }
 
 
@@ -53,7 +60,7 @@ void loadingscreen()
     text("LOADING...", width/2 - 170, 550);
 
 //Used timing to get the perfect synchronisation between my loadscreens
-    if (millis() < 8*1000)
+    if (millis() < 9*1000)
     {
         if(load_width <= 800)
         {
@@ -68,6 +75,21 @@ void loadingscreen()
       {
         load_circle += 10;
       }
-
+      if(load_circle == 1500)
+      {
+         menu_check = true; 
+      }
     }
+}
+
+void menuscreenlogo()
+{  
+  if(menu_check == true)
+  {
+     image(logo, 680, menu_logo_y);
+     if(menu_logo_y < 100)
+     {
+        menu_logo_y += 1.5;
+     }
+  }
 }
