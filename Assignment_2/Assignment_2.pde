@@ -17,9 +17,9 @@ int load_circle = 0;
 int menu_logo_y = - 100;
 int menu_bg_y = 900;
 int menu_option1_x = -400;
-int menu_option2_x = 0;
-int menu_option3_x = 0;
-int menu_option4_x = 0;
+int menu_option2_x = 2050;
+int menu_option3_x = -400;
+int menu_option4_x = 2050;
 boolean load_finished = false;
 boolean menu_check1 = false;
 boolean menu_check2 = false;
@@ -127,14 +127,55 @@ void menu_screen_options()
     noFill();
     stroke(0);
     strokeWeight(10);
-    rect(menu_option3_x, 420, 400, 75, 15);
-    if(menu_option3_x < 610)
+    rect(menu_option1_x, 420, 400, 75, 15);
+    if(menu_option1_x < 630)
      {
         menu_option1_x += 20;
      }
-     if(menu_option1_x > 400)
+     if(menu_option1_x == 630)
      {
         menu_check4 = true; 
+     }
+  }
+  if(menu_check4 == true)
+  {
+    noFill();
+    stroke(0);
+    strokeWeight(10);
+    rect(menu_option2_x, 515, 400, 75, 15);
+    if(menu_option2_x > 630)
+     {
+        menu_option2_x -= 20;
+     }
+     if(menu_option2_x == 630)
+     {
+        menu_check5 = true; 
+     }
+  }
+  if(menu_check5 == true)
+  {
+    noFill();
+    stroke(0);
+    strokeWeight(10);
+    rect(menu_option1_x, 610, 400, 75, 15);
+    if(menu_option3_x < 630)
+     {
+        menu_option3_x += 20;
+     }
+     if(menu_option3_x == 630)
+     {
+        menu_check6 = true; 
+     }
+  }
+  if(menu_check6 == true)
+  {
+    noFill();
+    stroke(0);
+    strokeWeight(10);
+    rect(menu_option4_x, 705, 400, 75, 15);
+    if(menu_option4_x > 630)
+     {
+        menu_option4_x -= 20;
      }
   }
 }
