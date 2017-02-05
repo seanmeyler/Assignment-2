@@ -15,11 +15,15 @@ float time = millis();
 int load_width = 0;
 int load_circle = 0;
 int menu_logo_y = - 100;
-int menu_bg_y = 900;
+int menu_text_y = 900;
+int menu_bg_y = 1000;
 int menu_option1_x = -400;
 int menu_option2_x = 2050;
 int menu_option3_x = -400;
 int menu_option4_x = 2050;
+int option_text_x1 = -400;
+int option_text_x2 = 2050;
+int option_text_x3 = -400;
 boolean load_finished = false;
 boolean menu_check1 = false;
 boolean menu_check2 = false;
@@ -120,11 +124,18 @@ void menu_screen_options()
     stroke(25,175,225);
     strokeWeight(10);
     rect(590, menu_bg_y, 500, 305, 15);
-    if (menu_bg_y > 400)
+    fill(25,175,225);
+    textSize(80);
+    text("MAIN MENU", width/2 - 215, menu_text_y);
+    if (menu_bg_y > 500)
     {
       menu_bg_y -= 20;
     }
-    if (menu_bg_y == 400)
+    if(menu_text_y > 450)
+    {
+      menu_text_y -= 20; 
+    }
+    if (menu_bg_y == 500)
     {
       menu_check3 = true;
     }
@@ -132,31 +143,53 @@ void menu_screen_options()
 
   if (menu_check3 == true)
   {
-    fill(255);
+    noFill();
     stroke(25,175,225);
     strokeWeight(2);
-    rect(menu_option1_x, 420, 400, 75, 15);
+    rect(menu_option1_x, 520, 400, 75, 15);
+    fill(25,175,225);
+    textSize(80);
+    text("PLAY", option_text_x1, 585);
     if (menu_option1_x < 630)
     {
       menu_option1_x += 20;
     }
+    if(option_text_x1 < 720)
+    {
+       option_text_x1 += 20; 
+    }
 
-    fill(255);
+    noFill();
     stroke(25,175,225);
     strokeWeight(2);
-    rect(menu_option2_x, 515, 400, 75, 15);
+    rect(menu_option2_x, 615, 400, 75, 15);
+    fill(25,175,225);
+    textSize(80);
+    text("SOUND", option_text_x2, 680);
     if (menu_option2_x > 630)
     {
       menu_option2_x -= 20;
     }
+    if(option_text_x2 < 720)
+    {
+       option_text_x2 += 20; 
+    }
 
-    fill(255);
+
+    noFill();
     stroke(25,175,225);
     strokeWeight(2);
-    rect(menu_option1_x, 610, 400, 75, 15);
+    rect(menu_option1_x, 710, 400, 75, 15);
+    fill(25,175,225);
+    textSize(80);
+    text("QUIT", option_text_x3, 772);
     if (menu_option3_x < 630)
     {
       menu_option3_x += 20;
+    }
+    if(option_text_x3 < 720)
+    {
+       option_text_x3 += 20; 
     }
   }
 }
