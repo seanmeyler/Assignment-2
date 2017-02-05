@@ -210,6 +210,22 @@ void mouseOver()
       textSize(80);
       text("PLAY", option_text_x1, 585);
     }
+    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 615 && mouseY <= 615+75)
+    {
+      fill(25,175,225);
+      rect(menu_option2_x, 615, 400, 75, 15);
+      fill(255);
+      textSize(80);
+      text("SOUND", option_text_x2, 680);
+    }
+    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 710 && mouseY <= 710+75)
+    {
+      fill(25,175,225);
+      rect(menu_option1_x, 710, 400, 75, 15);
+      fill(255);
+      textSize(80);
+      text("QUIT", option_text_x3, 772);
+    }
   }
 }
 
