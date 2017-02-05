@@ -24,6 +24,7 @@ int menu_option4_x = 2050;
 int option_text_x1 = -400;
 int option_text_x2 = 2050;
 int option_text_x3 = -400;
+int menu_function = 0;
 boolean load_finished = false;
 boolean menu_check1 = false;
 boolean menu_check2 = false;
@@ -112,6 +113,7 @@ void menuscreenlogo()
     if (menu_logo_y == 100)
     {
       menu_check2 = true;
+      menu_function = 1;
     }
   }
 }
@@ -170,9 +172,9 @@ void menu_screen_options()
     {
       menu_option2_x -= 20;
     }
-    if(option_text_x2 < 720)
+    if(option_text_x2 > 705)
     {
-       option_text_x2 += 20; 
+       option_text_x2 -= 20; 
     }
 
 
@@ -187,7 +189,7 @@ void menu_screen_options()
     {
       menu_option3_x += 20;
     }
-    if(option_text_x3 < 720)
+    if(option_text_x3 < 730)
     {
        option_text_x3 += 20; 
     }
