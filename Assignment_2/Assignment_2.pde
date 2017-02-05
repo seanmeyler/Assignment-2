@@ -106,6 +106,7 @@ void menuscreenlogo()
 {  
   if (menu_check1 == true)
   {
+    //spots_menu();
     image(logo, 680, menu_logo_y);
     if (menu_logo_y < 100)
     {
