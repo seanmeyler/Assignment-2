@@ -100,7 +100,6 @@ void menuscreenlogo()
 {  
   if (menu_check1 == true)
   {
-    spots_menu();
     image(logo, 680, menu_logo_y);
     if (menu_logo_y < 100)
     {
@@ -120,7 +119,7 @@ void menu_screen_options()
     fill(255);
     stroke(25,175,225);
     strokeWeight(10);
-    rect(590, menu_bg_y, 500, 400, 15);
+    rect(590, menu_bg_y, 500, 305, 15);
     if (menu_bg_y > 400)
     {
       menu_bg_y -= 20;
@@ -158,15 +157,6 @@ void menu_screen_options()
     if (menu_option3_x < 630)
     {
       menu_option3_x += 20;
-    }
-
-    fill(255);
-    stroke(25,175,225);
-    strokeWeight(2);
-    rect(menu_option4_x, 705, 400, 75, 15);
-    if (menu_option4_x > 630)
-    {
-      menu_option4_x -= 20;
     }
   }
 }
