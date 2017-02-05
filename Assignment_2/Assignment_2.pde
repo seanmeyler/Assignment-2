@@ -62,6 +62,7 @@ void draw()
   loadingscreen();
   menuscreenlogo();
   menu_screen_options();
+  mouseOver();
 }
 
 
@@ -113,7 +114,6 @@ void menuscreenlogo()
     if (menu_logo_y == 100)
     {
       menu_check2 = true;
-      menu_function = 1;
     }
   }
 }
@@ -192,6 +192,23 @@ void menu_screen_options()
     if(option_text_x3 < 730)
     {
        option_text_x3 += 20; 
+    }
+    
+    menu_function = 1;
+  }
+}
+
+void mouseOver()
+{
+  if(menu_function == 1)
+  {
+    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 520 && mouseY <= 520+75)
+    {
+      fill(25,175,225);
+      rect(menu_option1_x, 520, 400, 75, 15);
+      fill(255);
+      textSize(80);
+      text("PLAY", option_text_x1, 585);
     }
   }
 }
