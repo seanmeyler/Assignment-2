@@ -14,23 +14,21 @@ PFont font;
 float time = millis();
 int load_width = 0;
 int load_circle = 0;
+int load_circle2 = 0;
 int menu_logo_y = - 100;
 int menu_text_y = 900;
 int menu_bg_y = 1000;
 int menu_option1_x = -400;
 int menu_option2_x = 1650;
 int menu_option3_x = -400;
-int option_text_x1 = -400;
+int option_text_x1 = -330;
 int option_text_x2 = 1690;
-int option_text_x3 = -400;
+int option_text_x3 = -330;
 int menu_function = 0;
 boolean load_finished = false;
 boolean menu_check1 = false;
 boolean menu_check2 = false;
 boolean menu_check3 = false;
-boolean menu_check4 = false;
-boolean menu_check5 = false;
-boolean menu_check6 = false;
 
 void setup()
 {
@@ -152,7 +150,7 @@ void menu_screen_options()
     fill(25,175,225);
     textSize(80);
     text("PLAY", option_text_x1, 585);
-    if (menu_option1_x < 630)
+    if (menu_option1_x < 640)
     {
       menu_option1_x += 20;
     }
@@ -243,11 +241,6 @@ void mousePressed()
 {
   if(menu_function == 1)
   {
-    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 520 && mouseY <= 520+75 && mousePressed)
-    {
-      menu_function = 2;
-      playselect();
-    }
     if (mouseX >= 630+200 && mouseX <= 630+270 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
       sound1.play();
@@ -261,87 +254,19 @@ void mousePressed()
       exit();
     }
   }
+  if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 520 && mouseY <= 520+75 && mousePressed)
+  {
+    menu_function = 0;
+    playselect();
+  }
 }
 
 void playselect()
 {
-   if(menu_function == 2)
-   {
-     if (menu_check2 == true)
-    {
-      fill(255);
-      stroke(25,175,225);
-      strokeWeight(10);
-      rect(590, menu_bg_y, 500, 305, 15);
-      fill(25,175,225);
-      textSize(80);
-      text("MAIN MENU", width/2 - 215, menu_text_y);
-      if (menu_bg_y > 500)
-      {
-        menu_bg_y -= 20;
-      }
-      if(menu_text_y > 450)
-      {
-        menu_text_y -= 20; 
-      }
-      if (menu_bg_y == 500)
-      {
-        menu_check3 = true;
-      }
-    }
-  
-    if (menu_check3 == true)
-    {
-      noFill();
-      stroke(25,175,225);
-      strokeWeight(2);
-      rect(menu_option1_x, 520, 400, 75, 15);
-      fill(25,175,225);
-      textSize(80);
-      text("PLAY", option_text_x1, 585);
-      if (menu_option1_x < 630)
-      {
-        menu_option1_x += 20;
-      }
-      if(option_text_x1 < 720)
-      {
-         option_text_x1 += 20; 
-      }
-  
-      noFill();
-      stroke(25,175,225);
-      strokeWeight(2);
-      rect(menu_option2_x, 615, 400, 75, 15);
-      fill(25,175,225);
-      textSize(45);
-      text("SOUND: ON  OFF", option_text_x2, 670);
-      if (menu_option2_x > 630)
-      {
-        menu_option2_x -= 20;
-      }
-      if(option_text_x2 > 660)
-      {
-         option_text_x2 -= 20; 
-      }
-  
-  
-      noFill();
-      stroke(25,175,225);
-      strokeWeight(2);
-      rect(menu_option1_x, 710, 400, 75, 15);
-      fill(25,175,225);
-      textSize(80);
-      text("QUIT", option_text_x3, 772);
-      if (menu_option3_x < 630)
-      {
-        menu_option3_x += 20;
-      }
-      if(option_text_x3 < 730)
-      {
-         option_text_x3 += 20; 
-      }
-      
-      menu_function = 1;
-    }
-  }
+  fill(255);
+  ellipse(width/2, height/2, load_circle, load_circle);
+  if(load_circle2 <= 2000)
+  {
+     load_circle2 += 20;
+  } 
 }
