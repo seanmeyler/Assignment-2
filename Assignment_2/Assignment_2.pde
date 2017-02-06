@@ -25,6 +25,8 @@ int option_text_x1 = -330;
 int option_text_x2 = 1690;
 int option_text_x3 = -330;
 int menu_function = 0;
+int menu_off = 0;
+int game_on = 0;
 boolean load_finished = false;
 boolean menu_check1 = false;
 boolean menu_check2 = false;
@@ -60,6 +62,12 @@ void draw()
   menuscreenlogo();
   menu_screen_options();
   mouseOver();
+  
+  if(menu_off == 1)
+  {
+     playselect(); 
+  }
+  
 }
 
 
@@ -241,6 +249,10 @@ void mousePressed()
 {
   if(menu_function == 1)
   {
+    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 520 && mouseY <= 520+75 && mousePressed)
+    {
+      menu_off = 1;
+    }
     if (mouseX >= 630+200 && mouseX <= 630+270 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
       sound1.play();
@@ -254,19 +266,49 @@ void mousePressed()
       exit();
     }
   }
-  if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 520 && mouseY <= 520+75 && mousePressed)
-  {
-    menu_function = 0;
-    playselect();
-  }
 }
 
 void playselect()
 {
-  fill(255);
-  ellipse(width/2, height/2, load_circle, load_circle);
-  if(load_circle2 <= 2000)
-  {
-     load_circle2 += 20;
-  } 
+  menu_function = 0;
+  
+     if (menu_logo_y > -400)
+     {
+      menu_logo_y -= 10;
+     }
+     if (menu_bg_y < 1100)
+     {
+       menu_bg_y += 40;
+     }
+     if(menu_text_y < 1100)
+     {
+       menu_text_y += 40; 
+     }
+     if (menu_option1_x > -500)
+     {
+       menu_option1_x -= 50;
+     }
+     if(option_text_x1 > -500)
+     {
+        option_text_x1 -= 50; 
+     }
+  
+     if (menu_option2_x < 1750)
+     {
+        menu_option2_x += 50;
+     }
+     if(option_text_x2 < 1790)
+     {
+        option_text_x2 += 50; 
+     }
+  
+     if (menu_option3_x > -500)
+     {
+       menu_option3_x -= 50;
+     }
+     if(option_text_x3 > -800)
+     {
+        option_text_x3 -= 50;
+        game_on = 1;
+     }
 }
