@@ -29,7 +29,9 @@ int menu_function = 0;
 int menu_off = 0;
 int game_on = 0;
 int score = 0;
+int condition = 0;
 String s = "SCORE: ";
+boolean right_check;
 boolean load_finished = false;
 boolean menu_check1 = false;
 boolean menu_check2 = false;
@@ -74,6 +76,7 @@ void draw()
   
   if(game_on == 1)
   {
+     menu_function = 0;
      bopit(); 
   }
 }
@@ -328,5 +331,11 @@ void bopit()
 {
   textSize(80);
   text(s + score, 30, 100);
-  image(bopit, 440, 300);
+  image(bopit, 440, 250);
+  
+  //BOP IT
+  if (mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
+  {
+    score += 1;
+  }
 }
