@@ -249,11 +249,11 @@ void mousePressed()
     }
     if (mouseX >= 630+200 && mouseX <= 630+270 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
-      sound1.pause();
+      sound1.play();
     }
     if (mouseX >= 630+300 && mouseX <= 630+385 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
-      sound1.play();
+      sound1.pause();
     }
     if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 710 && mouseY <= 710+75 && mousePressed)
     {
