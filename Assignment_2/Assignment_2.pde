@@ -18,11 +18,10 @@ int menu_logo_y = - 100;
 int menu_text_y = 900;
 int menu_bg_y = 1000;
 int menu_option1_x = -400;
-int menu_option2_x = 2050;
+int menu_option2_x = 1650;
 int menu_option3_x = -400;
-int menu_option4_x = 2050;
 int option_text_x1 = -400;
-int option_text_x2 = 2050;
+int option_text_x2 = 1650;
 int option_text_x3 = -400;
 int menu_function = 0;
 boolean load_finished = false;
@@ -216,8 +215,8 @@ void mouseOver()
       fill(25,175,225);
       rect(menu_option2_x, 615, 400, 75, 15);
       fill(255);
-      textSize(80);
-      text("SOUND", option_text_x2, 680);
+      textSize(40);
+      text("SOUND: ON   OFF", option_text_x2, 680);
     }
     if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 710 && mouseY <= 710+75)
     {
@@ -250,7 +249,12 @@ void mousePressed()
     }
     if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
-      //SOUND OFF
+      sound1.pause();
+      sound1.rewind();
+    }
+    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
+    {
+      sound1.play();
     }
     if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 710 && mouseY <= 710+75 && mousePressed)
     {
