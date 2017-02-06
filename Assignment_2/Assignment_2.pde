@@ -9,6 +9,7 @@ Minim minim;
 AudioPlayer sound1;
 
 PImage logo;
+PImage bopit;
 PFont font;
 
 float time = millis();
@@ -46,6 +47,7 @@ void setup()
 
   //Load in different images
   logo = loadImage("bopit.jpg");
+  bopit = loadImage("bopit2.png");
 
   //For fonts
   font = loadFont("BerlinSansFB-Bold-48.vlw");
@@ -68,6 +70,10 @@ void draw()
      playselect(); 
   }
   
+  if(game_on == 1)
+  {
+     bopit(); 
+  }
 }
 
 
@@ -311,4 +317,9 @@ void playselect()
         option_text_x3 -= 50;
         game_on = 1;
      }
+}
+
+void bopit()
+{
+  
 }
