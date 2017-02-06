@@ -93,7 +93,7 @@ void loadingscreen()
     ellipse(width/2, height/2, load_circle, load_circle);
     if (load_circle <= 2000)
     {
-      load_circle += 10;
+      load_circle += 20;
     }
     if (load_circle == 1800)
     {
@@ -237,5 +237,24 @@ void spots_menu()
     fill(random(255), random(255), random(255), random(255));
     noStroke();
     ellipse(random(0, width), random(0, height), random(0, 30), random(0, 30));
+  }
+}
+
+void mousePressed()
+{
+  if(menu_function == 1)
+  {
+    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 520 && mouseY <= 520+75 && mousePressed)
+    {
+      //PLAY STUFF
+    }
+    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
+    {
+      //SOUND OFF
+    }
+    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 710 && mouseY <= 710+75 && mousePressed)
+    {
+      exit();
+    }
   }
 }
