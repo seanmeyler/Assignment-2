@@ -28,6 +28,8 @@ int option_text_x3 = -330;
 int menu_function = 0;
 int menu_off = 0;
 int game_on = 0;
+int score = 0;
+String s = "SCORE: ";
 boolean load_finished = false;
 boolean menu_check1 = false;
 boolean menu_check2 = false;
@@ -315,11 +317,16 @@ void playselect()
      if(option_text_x3 > -800)
      {
         option_text_x3 -= 50;
-        game_on = 1;
+     }
+     if(option_text_x3 == -800)
+     {
+        game_on = 1; 
      }
 }
 
 void bopit()
 {
-  
+  textSize(80);
+  text(s + score, 30, 100);
+  image(bopit, 440, 300);
 }
