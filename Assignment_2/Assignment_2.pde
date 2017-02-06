@@ -21,7 +21,7 @@ int menu_option1_x = -400;
 int menu_option2_x = 1650;
 int menu_option3_x = -400;
 int option_text_x1 = -400;
-int option_text_x2 = 1650;
+int option_text_x2 = 1690;
 int option_text_x3 = -400;
 int menu_function = 0;
 boolean load_finished = false;
@@ -166,13 +166,13 @@ void menu_screen_options()
     strokeWeight(2);
     rect(menu_option2_x, 615, 400, 75, 15);
     fill(25,175,225);
-    textSize(80);
-    text("SOUND", option_text_x2, 680);
+    textSize(45);
+    text("SOUND: ON  OFF", option_text_x2, 670);
     if (menu_option2_x > 630)
     {
       menu_option2_x -= 20;
     }
-    if(option_text_x2 > 705)
+    if(option_text_x2 > 660)
     {
        option_text_x2 -= 20; 
     }
@@ -215,8 +215,8 @@ void mouseOver()
       fill(25,175,225);
       rect(menu_option2_x, 615, 400, 75, 15);
       fill(255);
-      textSize(40);
-      text("SOUND: ON   OFF", option_text_x2, 680);
+      textSize(45);
+      text("SOUND: ON  OFF", option_text_x2, 670);
     }
     if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 710 && mouseY <= 710+75)
     {
@@ -247,12 +247,11 @@ void mousePressed()
     {
       //PLAY STUFF
     }
-    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
+    if (mouseX >= 630+200 && mouseX <= 630+270 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
       sound1.pause();
-      sound1.rewind();
     }
-    if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
+    if (mouseX >= 630+300 && mouseX <= 630+385 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
       sound1.play();
     }
