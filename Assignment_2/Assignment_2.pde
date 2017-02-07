@@ -30,6 +30,7 @@ int menu_off = 0;
 int game_on = 0;
 int score = 0;
 int condition = 0;
+int spots_on = 0;
 String s = "SCORE: ";
 boolean right_check;
 boolean load_finished = false;
@@ -76,6 +77,7 @@ void draw()
   
   if(game_on == 1)
   {
+     spots_on = 0;
      menu_function = 0;
      bopit(); 
   }
@@ -122,6 +124,7 @@ void menuscreenlogo()
 {  
   if (menu_check1 == true)
   {
+    spots_on = 1;
     //spots_menu();
     image(logo, 680, menu_logo_y);
     if (menu_logo_y < 100)
@@ -248,11 +251,14 @@ void mouseOver()
 
 void spots_menu()
 {
-  for (int i = 0; i < 2000; i++)
+  if(spots_on == 1)
   {
-    fill(random(255), random(255), random(255), random(255));
-    noStroke();
-    ellipse(random(0, width), random(0, height), random(0, 30), random(0, 30));
+    for (int i = 0; i < 2000; i++)
+    {
+      fill(random(255), random(255), random(255), random(255));
+      noStroke();
+      ellipse(random(0, width), random(0, height), random(0, 30), random(0, 30));
+    }
   }
 }
 
@@ -263,6 +269,7 @@ void mousePressed()
     if (mouseX >= 630 && mouseX <= 630+410 && mouseY >= 520 && mouseY <= 520+75 && mousePressed)
     {
       menu_off = 1;
+      menu_function = 0;
     }
     if (mouseX >= 630+200 && mouseX <= 630+270 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
@@ -329,6 +336,7 @@ void playselect()
 
 void bopit()
 {
+  fill(25,175,225);
   textSize(80);
   text(s + score, 30, 100);
   image(bopit, 440, 250);
