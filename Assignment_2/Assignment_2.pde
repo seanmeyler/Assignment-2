@@ -28,6 +28,7 @@ int option_text_x3 = -330;
 int menu_function = 0;
 int menu_off = 0;
 int game_on = 0;
+int done = 1;
 int score = 0;
 int condition = 0;
 int spots_on = 0;
@@ -80,10 +81,26 @@ void draw()
   {
      spots_on = 0;
      menu_function = 0;
-       
-    for(int i = 0; i < 100; i++)
+    
+    if(done == 0)
     {
-      which = int(random(1,3));
+      for(int i = 0; i < 100; i++)
+      {
+        which = int(random(1,3));
+        
+        if( which == 1)
+        {
+           bopit(); 
+        }
+        if(which == 2)
+        {
+           pullit(); 
+        }
+        if(which == 3)
+        {
+           twistit(); 
+        }
+      }
     }
   }
 } 
@@ -346,45 +363,73 @@ void bopit()
   text(s + score, 30, 100);
   image(bopit, 440, 250);
   
+  fill(25,175,225);
+  textSize(180);
+  text("BOP IT!", 500, 875);
+  
   //BOP IT
   if (mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
   {
     score += 1;
+    right_check = true;
   }
-  
-  /*fill(25,175,225);
-  textSize(180);
-  text("BOP IT!", 500, 875);*/
+  else
+  {
+    right_check = false; 
+  }
 }
 
 void pullit()
 {
+  fill(25,175,225);
+  textSize(80);
+  text(s + score, 30, 100);
+  image(bopit, 440, 250);
+  
+  fill(25,175,225);
+  textSize(180);
+  text("PULL IT!", 470, 875);
+  
   if(keyPressed)
   {
      if(key == ' ')
      {
         score += 1; 
+        right_check = true;
+     }
+     else
+     {
+         right_check = false; 
      }
   }
-  
-  /*fill(25,175,225);
-  textSize(180);
-  text("PULL IT!", 470, 875);*/
 }
 
 void twistit()
 {
+  fill(25,175,225);
+  textSize(80);
+  text(s + score, 30, 100);
+  image(bopit, 440, 250);
+  
+  fill(25,175,225);
+  textSize(180);
+  text("TWIST IT!", 500, 875);
+  
   if(keyPressed)
   {
-     if(key == 'P')
+     if(key == 'T')
      {
-        score += 1; 
+        score += 1;
+        right_check = true;
+     }
+     else
+     {
+        right_check = false; 
      }
   }
-  /*fill(25,175,225);
-  textSize(180);
-  text("TWIST IT!", 435, 875);*/
 }
+
+void resetgame()
 
 
 void gameoverscreen()
