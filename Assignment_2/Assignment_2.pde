@@ -13,7 +13,7 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 Minim minim;
-AudioPlayer sound1;
+AudioPlayer sound1, sound2, sound3, sound4, sound5;
 
 
 //Variables declared
@@ -76,6 +76,10 @@ void setup()
   minim = new Minim(this);
   sound1 = minim.loadFile("drumbeats.mp3");
   sound1.loop();
+  sound2 = minim.loadFile("bopit.mp3");
+  sound3 = minim.loadFile("pullit.mp3");
+  sound4 = minim.loadFile("tiwstit.mp3");
+  sound5 = minim.loadFile("fail.mp3");
   
   //As I hate the look of stock cursors in games I changed mines to a cross
   cursor(CROSS); 
@@ -105,14 +109,20 @@ void draw()
     
      if( key == '1')
      {
+        sound2.play();
+        sound2.rewind();
         bopit(); 
      }
      if(key == '2')
      {
+        sound3.play();
+        sound3.rewind();
         pullit(); 
      }
      if(key == '3')
      {
+        sound4.play();
+        sound4.rewind();
         twistit(); 
      }
    }
@@ -129,6 +139,8 @@ void draw()
   {
      if(key == 'q' || key == 'Q')
      {
+        sound5.play();
+        sound5.rewind();
         game_on = 0;
         gameoverscreen(); 
      }
