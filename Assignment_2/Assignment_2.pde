@@ -103,6 +103,19 @@ void draw()
       }
     }
   }
+  
+  if(keyPressed)
+  {
+     if(key == 'R')
+     {
+        resetgame(); 
+     }
+  }
+  
+  if(right_check == false)
+  {
+     gameoverscreen(); 
+  }
 } 
 
 
@@ -373,11 +386,15 @@ void bopit()
     score += 1;
     right_check = true;
   }
-  else
+  else if (keyPressed)
   {
-    right_check = false; 
+    if(key == ' ' || key == 'T')
+    { 
+      right_check = false;
+    }
   }
 }
+
 
 void pullit()
 {
@@ -397,10 +414,13 @@ void pullit()
         score += 1; 
         right_check = true;
      }
-     else
-     {
-         right_check = false; 
-     }
+     else if (keyPressed)
+    {
+      if(key == 'T' || mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
+      { 
+        right_check = false;
+      }
+    }
   }
 }
 
@@ -422,14 +442,23 @@ void twistit()
         score += 1;
         right_check = true;
      }
-     else
+     else if (keyPressed)
      {
-        right_check = false; 
+        if(key == ' ' || mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
+        { 
+          right_check = false;
+        }
      }
   }
 }
 
 void resetgame()
+{
+  fill(25,175,225);
+  textSize(80);
+  text(s + score, 30, 100);
+  image(bopit, 440, 250); 
+}
 
 
 void gameoverscreen()
