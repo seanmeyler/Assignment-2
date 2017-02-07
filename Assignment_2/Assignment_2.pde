@@ -99,6 +99,7 @@ void draw()
   //I wanted to make the game somewhat player versus player so player 1 is the scoring player and player 2 is the player responsible for whether player 1 must Bop it, Twist it, or Pull it
   if(game_on == 1)
   {
+     resetgame();
      spots_on = 0;
      menu_function = 0;
     
@@ -124,10 +125,13 @@ void draw()
      }
   }
   
-  //If the person makes the wrong move during the game they are shown the game over screen and the score they achieved.
-  if(right_check == false)
+  if(keyPressed)
   {
-     gameoverscreen(); 
+     if(key == 'q' || key == 'Q')
+     {
+        game_on = 0;
+        gameoverscreen(); 
+     }
   }
 } 
 
@@ -397,7 +401,7 @@ void bopit()
   {
     if(key == ' ' || key == 'T' || key == 't')
     { 
-      right_check = false;
+      gameoverscreen();
     }
   }
 }
@@ -421,12 +425,12 @@ void pullit()
         score += 1; 
         right_check = true;
      }
-     else if (keyPressed)
-    {
-      if(key == 'T' || key == 't' || mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
-      { 
-        right_check = false;
-      }
+  }
+  else if (keyPressed)
+  {
+    if(key == 'T' || key == 't' || mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
+    { 
+       gameoverscreen();
     }
   }
 }
@@ -450,13 +454,13 @@ void twistit()
         score += 1;
         right_check = true;
      }
-     else if (keyPressed)
-     {
-        if(key == ' ' || mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
-        { 
-          right_check = false;
-        }
-     }
+  }
+  else if (keyPressed)
+  {
+    if(key == ' ' || mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
+    { 
+       gameoverscreen();
+    }
   }
 }
 
