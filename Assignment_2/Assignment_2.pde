@@ -1,3 +1,10 @@
+/*C15431532 
+Sean Meyler 
+DT228 -2 
+Object Oriented Programming
+*/
+
+//Use the library minim for the sounds in my program
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -7,6 +14,9 @@ import ddf.minim.ugens.*;
 
 Minim minim;
 AudioPlayer sound1;
+
+
+//Variables declared
 
 PImage logo;
 PImage bopit;
@@ -42,9 +52,11 @@ boolean menu_check3 = false;
 
 void setup()
 {
+  //Set size and background colour to white as it looks best in my opinion with many colors
   size(1650, 900);
   background(255);
 
+  //Using a variable which I incremented on everyloop I generate multicolored circles for my main loading screen
   for (int i = 0; i < 2000; i++)
   {
     fill(random(255), random(255), random(255), random(255));
@@ -60,6 +72,7 @@ void setup()
   font = loadFont("BerlinSansFB-Bold-48.vlw");
   textFont(font);
 
+  //Loading in sound files
   minim = new Minim(this);
   sound1 = minim.loadFile("drumbeats.mp3");
   sound1.loop();
@@ -67,6 +80,7 @@ void setup()
 
 void draw()
 {
+  //Call different functions
   loadingscreen();
   menuscreenlogo();
   menu_screen_options();
@@ -85,7 +99,6 @@ void draw()
     if(done == 0)
     {
         which = int(random(1,3));
-        
         if( which == 1)
         {
            bopit(); 
