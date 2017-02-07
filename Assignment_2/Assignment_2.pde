@@ -338,16 +338,39 @@ void bopit()
   {
     score += 1;
   }
+  
+  /*fill(25,175,225);
+  textSize(180);
+  text("BOP IT!", 500, 875);*/
 }
 
 void pullit()
 {
+  if(keyPressed)
+  {
+     if(key == ' ')
+     {
+        score += 1; 
+     }
+  }
   
+  /*fill(25,175,225);
+  textSize(180);
+  text("PULL IT!", 470, 875);*/
 }
 
 void twistit()
 {
-
+  if(keyPressed)
+  {
+     if(key == 'P')
+     {
+        score += 1; 
+     }
+  }
+  /*fill(25,175,225);
+  textSize(180);
+  text("TWIST IT!", 435, 875);*/
 }
 
 
