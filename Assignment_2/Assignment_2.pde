@@ -31,6 +31,7 @@ int game_on = 0;
 int score = 0;
 int condition = 0;
 int spots_on = 0;
+float which = 0;
 String s = "SCORE: ";
 boolean right_check;
 boolean load_finished = false;
@@ -79,9 +80,13 @@ void draw()
   {
      spots_on = 0;
      menu_function = 0;
-     bopit(); 
+       
+    for(int i = 0; i < 100; i++)
+    {
+      which = int(random(1,3));
+    }
   }
-}
+} 
 
 
 //Loading screen of my game
