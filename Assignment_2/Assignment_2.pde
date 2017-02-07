@@ -266,7 +266,7 @@ void menu_screen_options()
 }
 
 
-//To make a more visually appealling menu I used a series of if statements which change the colour of the menu option boxes if the mouse pointer is hovered over them
+//To make a more visually appealling menu I used a series of if statements which change the colour of the menu option boxes if the mouse pointer is hovered over them, using MouseX+Y co-ordinates
 void mouseOver()
 {
   if(menu_function == 1)
@@ -298,19 +298,7 @@ void mouseOver()
   }
 }
 
-void spots_menu()
-{
-  if(spots_on == 1)
-  {
-    for (int i = 0; i < 2000; i++)
-    {
-      fill(random(255), random(255), random(255), random(255));
-      noStroke();
-      ellipse(random(0, width), random(0, height), random(0, 30), random(0, 30));
-    }
-  }
-}
-
+//Again I used MouseX+Y co-ordinates and mousePressed to choose the relevant menu options
 void mousePressed()
 {
   if(menu_function == 1)
@@ -320,10 +308,10 @@ void mousePressed()
       menu_off = 1;
       menu_function = 0;
       game_on = 1;
-      done = 0;
     }
     if (mouseX >= 630+200 && mouseX <= 630+270 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
+      //As some might find the sounds annoying I included an option to turn music off
       sound1.play();
     }
     if (mouseX >= 630+300 && mouseX <= 630+385 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
@@ -337,6 +325,7 @@ void mousePressed()
   }
 }
 
+//I used a series of if statements to remove the menu in fluid movements off the screen in different directions
 void playselect()
 {
   menu_function = 0;
@@ -385,6 +374,8 @@ void playselect()
      }
 }
 
+
+//The Bop-It! function using if statements and boolean variables to see if player one chooses the right option
 void bopit()
 {
   fill(25,175,225);
@@ -411,7 +402,7 @@ void bopit()
   }
 }
 
-
+//The Pull-It! function using if statements and boolean variables to see if player one chooses the right option
 void pullit()
 {
   fill(25,175,225);
@@ -440,6 +431,7 @@ void pullit()
   }
 }
 
+//The Twist-It! function using if statements and boolean variables to see if player one chooses the right option
 void twistit()
 {
   fill(25,175,225);
@@ -468,6 +460,7 @@ void twistit()
   }
 }
 
+//Incase of errors or incase player 2 wants to make the game more tricky for player one I included a reset button to delay time between options and confuse player 1
 void resetgame()
 {
   fill(25,175,225);
@@ -477,7 +470,7 @@ void resetgame()
   done = 0;
 }
 
-
+//This is my game over screen which displays the score that player 1 got and also gives the option to quit the game
 void gameoverscreen()
 {
   background(255);
