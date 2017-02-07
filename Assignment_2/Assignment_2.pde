@@ -84,8 +84,6 @@ void draw()
     
     if(done == 0)
     {
-      for(int i = 0; i < 100; i++)
-      {
         which = int(random(1,3));
         
         if( which == 1)
@@ -100,13 +98,12 @@ void draw()
         {
            twistit(); 
         }
-      }
     }
   }
   
   if(keyPressed)
   {
-     if(key == 'R')
+     if(key == 'r' || key == 'R')
      {
         resetgame(); 
      }
@@ -176,21 +173,7 @@ void menuscreenlogo()
 void menu_screen_options()
 {
   if (menu_check2 == true)
-  {
-    for (int i = 0; i < 800; i++)
-    {
-      fill(random(255), random(255), random(255), random(255));
-      noStroke();
-      ellipse(random(0, 535), random(0, height), random(0, 30), random(0, 30));
-    }
-    
-    for (int i = 0; i < 800; i++)
-    {
-      fill(random(255), random(255), random(255), random(255));
-      noStroke();
-      ellipse(random(1150, width), random(0, height), random(0, 30), random(0, 30));
-    }
-    
+  {    
     fill(255);
     stroke(25,175,225);
     strokeWeight(10);
@@ -319,6 +302,8 @@ void mousePressed()
     {
       menu_off = 1;
       menu_function = 0;
+      game_on = 1;
+      done = 0;
     }
     if (mouseX >= 630+200 && mouseX <= 630+270 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
@@ -402,7 +387,7 @@ void bopit()
   }
   else if (keyPressed)
   {
-    if(key == ' ' || key == 'T')
+    if(key == ' ' || key == 'T' || key == 't')
     { 
       right_check = false;
     }
@@ -430,7 +415,7 @@ void pullit()
      }
      else if (keyPressed)
     {
-      if(key == 'T' || mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
+      if(key == 'T' || key == 't' || mouseX >= 750 - 95 && mouseX <= 750+95 && mouseY >= 445-95 && mouseY <= 445+95 && mousePressed)
       { 
         right_check = false;
       }
@@ -451,7 +436,7 @@ void twistit()
   
   if(keyPressed)
   {
-     if(key == 'T')
+     if(key == 'T' || key == 't')
      {
         score += 1;
         right_check = true;
@@ -471,7 +456,8 @@ void resetgame()
   fill(25,175,225);
   textSize(80);
   text(s + score, 30, 100);
-  image(bopit, 440, 250); 
+  image(bopit, 440, 250);
+  done = 0;
 }
 
 
