@@ -34,7 +34,7 @@ int condition = 0;
 int spots_on = 0;
 float which = 0;
 String s = "SCORE: ";
-boolean right_check;
+boolean right_check = true;;
 boolean load_finished = false;
 boolean menu_check1 = false;
 boolean menu_check2 = false;
