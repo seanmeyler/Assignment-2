@@ -177,6 +177,20 @@ void menu_screen_options()
 {
   if (menu_check2 == true)
   {
+    for (int i = 0; i < 800; i++)
+    {
+      fill(random(255), random(255), random(255), random(255));
+      noStroke();
+      ellipse(random(0, 535), random(0, height), random(0, 30), random(0, 30));
+    }
+    
+    for (int i = 0; i < 800; i++)
+    {
+      fill(random(255), random(255), random(255), random(255));
+      noStroke();
+      ellipse(random(1150, width), random(0, height), random(0, 30), random(0, 30));
+    }
+    
     fill(255);
     stroke(25,175,225);
     strokeWeight(10);
