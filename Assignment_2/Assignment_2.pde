@@ -338,13 +338,52 @@ void bopit()
   {
     score += 1;
   }
+}
+
+void pullit()
+{
   
-  //PULL IT
-  if(keyPressed)
+}
+
+void twistit()
+{
+
+}
+
+
+void gameoverscreen()
+{
+  background(255);
+  image(logo, 660, 100);
+  fill(255);
+  strokeWeight(10);
+  stroke(25,175,225);
+  rect(475,400, 720, 400, 15);
+  noFill();
+  strokeWeight(2);
+  stroke(25,175,225);
+  rect(630, 700, 400, 80, 15);
+  fill(25,175,225);
+  textSize(80);
+  text("QUIT", 735, 764);
+  textSize(110);
+  text("GAME OVER!", 490, 495);
+  textSize(80);
+  text("YOU SCORED:", 570, 590);
+  textSize(100);
+  text(score, 815, 680);
+    
+  if (mouseX >= 630 && mouseX <= 630+400 && mouseY >= 700 && mouseY <= 700+80)
   {
-     if(key == ' ')
-     {
-       score += 1;
-     }
+    fill(25,175,225);
+    rect(630, 700, 400, 80, 15);
+    fill(255);
+    textSize(80);
+    text("QUIT", 735, 764);
+  }
+    
+  if (mouseX >= 630 && mouseX <= 630+400 && mouseY >= 700 && mouseY <= 700+80 && mousePressed)
+  {
+    exit();
   }
 }
