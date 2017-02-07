@@ -1,18 +1,38 @@
-PImage bopit;
+PImage logo;
+PFont font;
 String s = "Score:";
-int score = 0;
+int score = 1;
 void setup()
 {
 size(1650,900);
-bopit = loadImage("bopit2.png");
+logo = loadImage("bopit.jpg");
+
+  font = loadFont("BerlinSansFB-Bold-48.vlw");
+  textFont(font);
 }
 
 void draw()
 {
-  textSize(80);
-  text(s + score, 30, 100);
-    image(bopit, 440, 250);
-    fill(0,255,0);
-    ellipse(750, 445, 190, 190);
+  background(255);
+      image(logo, 660, 100);
+    fill(255);
+    strokeWeight(10);
+    stroke(25,175,225);
+    rect(475,400, 720, 400, 15);
+    noFill();
+    strokeWeight(2);
+    stroke(25,175,225);
+    rect(630, 700, 400, 80, 15);
+    fill(25,175,225);
+    textSize(80);
+    text("QUIT", 735, 764);
+    textSize(110);
+    text("GAME OVER!", 490, 495);
+    textSize(80);
+    text("YOU SCORED:", 570, 590);
+    textSize(100);
+    text(score, 815, 680);
+    
+    
    
 }
