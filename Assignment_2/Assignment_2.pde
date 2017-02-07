@@ -338,4 +338,13 @@ void bopit()
   {
     score += 1;
   }
+  
+  //PULL IT
+  if(keyPressed)
+  {
+     if(key == ' ')
+     {
+       score += 1;
+     }
+  }
 }
