@@ -76,6 +76,9 @@ void setup()
   minim = new Minim(this);
   sound1 = minim.loadFile("drumbeats.mp3");
   sound1.loop();
+  
+  //As I hate the look of stock cursors in games I changed mines to a cross
+  cursor(CROSS); 
 }
 
 void draw()
@@ -86,33 +89,32 @@ void draw()
   menu_screen_options();
   mouseOver();
   
+  //I use this if statement to make sure the menu isn't still working when I am playing the game as it changes the color of my fonts to white which makes them dissapear into the white background
   if(menu_off == 1)
   {
      playselect(); 
   }
   
+  //After the play button is selected this use of if statements help me control the game and makes sure the games functions don't overlap each other
+  //I wanted to make the game somewhat player versus player so player 1 is the scoring player and player 2 is the player responsible for whether player 1 must Bop it, Twist it, or Pull it
   if(game_on == 1)
   {
      spots_on = 0;
      menu_function = 0;
     
-    if(done == 0)
-    {
-        which = int(random(1,3));
-        if( which == 1)
-        {
-           bopit(); 
-        }
-        if(which == 2)
-        {
-           pullit(); 
-        }
-        if(which == 3)
-        {
-           twistit(); 
-        }
-    }
-  }
+     if( key == '1')
+     {
+        bopit(); 
+     }
+     if(key == '2')
+     {
+        pullit(); 
+     }
+     if(key == '3')
+     {
+        twistit(); 
+     }
+   }
   
   if(keyPressed)
   {
@@ -122,6 +124,7 @@ void draw()
      }
   }
   
+  //If the person makes the wrong move during the game they are shown the game over screen and the score they achieved.
   if(right_check == false)
   {
      gameoverscreen(); 
@@ -165,12 +168,11 @@ void loadingscreen()
   }
 }
 
+//I used a series of boolean variables menucheck1,2,etc.. to have my animations running smoothly as the menu screen comes into view for the users
 void menuscreenlogo()
 {  
   if (menu_check1 == true)
   {
-    spots_on = 1;
-    //spots_menu();
     image(logo, 680, menu_logo_y);
     if (menu_logo_y < 100)
     {
@@ -263,6 +265,8 @@ void menu_screen_options()
   }
 }
 
+
+//To make a more visually appealling menu I used a series of if statements which change the colour of the menu option boxes if the mouse pointer is hovered over them
 void mouseOver()
 {
   if(menu_function == 1)
