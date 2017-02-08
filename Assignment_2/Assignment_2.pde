@@ -99,13 +99,28 @@ void draw()
   }
   
   //After the play button is selected this use of if statements help me control the game and makes sure the games functions don't overlap each other
-  //I wanted to make the game somewhat player versus player so player 1 is the scoring player and player 2 is the player responsible for whether player 1 must Bop it, Twist it, or Pull it
-  if(game_on == 1)
+  //I wanted to make the game somewhat player versus player so player 1 is the scoring player and player 2 is the player responsible for whether player 1 must Bop it, Twist it, or Pull i 
+  
+  if(keyPressed)
   {
-     resetgame();
-     spots_on = 0;
-     menu_function = 0;
-    
+     if(key == 'q' || key == 'Q')
+     {
+        sound5.play();
+        sound5.rewind();
+        game_on = 0;
+        gameoverscreen(); 
+     }
+  }
+  
+  player2_controls();
+} 
+
+void player2_controls()
+{
+     if(key == 'r' || key == 'R')
+     {
+        resetgame(); 
+     }
      if( key == '1')
      {
         sound2.play();
@@ -122,27 +137,7 @@ void draw()
      {
         twistit(); 
      }
-   }
-  
-  if(keyPressed)
-  {
-     if(key == 'r' || key == 'R')
-     {
-        resetgame(); 
-     }
-  }
-  
-  if(keyPressed)
-  {
-     if(key == 'q' || key == 'Q')
-     {
-        sound5.play();
-        sound5.rewind();
-        game_on = 0;
-        gameoverscreen(); 
-     }
-  }
-} 
+}
 
 
 //Loading screen of my game
@@ -321,6 +316,7 @@ void mousePressed()
       menu_off = 1;
       menu_function = 0;
       game_on = 1;
+      resetgame(); 
     }
     if (mouseX >= 630+200 && mouseX <= 630+270 && mouseY >= 615 && mouseY <= 615+75 && mousePressed)
     {
