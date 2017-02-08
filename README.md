@@ -89,8 +89,3 @@ gameoverscreen()
 Displays a game over screen and the score player 1 received.
 
 The sketch uses the mousePressed function as well as the mouseOver function to choose the menu options.
-
-
-
-
-
