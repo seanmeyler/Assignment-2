@@ -105,8 +105,7 @@ void draw()
      resetgame();
      spots_on = 0;
      menu_function = 0;
-  }
-  
+    
      if( key == '1')
      {
         sound2.play();
@@ -123,6 +122,7 @@ void draw()
      {
         twistit(); 
      }
+   }
   
   if(keyPressed)
   {
