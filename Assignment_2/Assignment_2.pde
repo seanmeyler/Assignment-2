@@ -78,7 +78,6 @@ void setup()
   sound1.loop();
   sound2 = minim.loadFile("bopit.mp3");
   sound3 = minim.loadFile("pullit.mp3");
-  sound4 = minim.loadFile("tiwstit.mp3");
   sound5 = minim.loadFile("fail.mp3");
   
   //As I hate the look of stock cursors in games I changed mines to a cross
@@ -106,7 +105,8 @@ void draw()
      resetgame();
      spots_on = 0;
      menu_function = 0;
-    
+  }
+  
      if( key == '1')
      {
         sound2.play();
@@ -121,11 +121,8 @@ void draw()
      }
      if(key == '3')
      {
-        sound4.play();
-        sound4.rewind();
         twistit(); 
      }
-   }
   
   if(keyPressed)
   {
